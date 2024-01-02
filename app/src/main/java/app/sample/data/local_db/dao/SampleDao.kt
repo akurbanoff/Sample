@@ -1,9 +1,9 @@
-package app.sample.db.dao
+package app.sample.data.local_db.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import app.sample.db.models.Sample
+import app.sample.data.local_db.models.Sample
 import kotlinx.coroutines.flow.Flow
 
 @Dao

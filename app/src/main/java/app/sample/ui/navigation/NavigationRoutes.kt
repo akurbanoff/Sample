@@ -1,4 +1,4 @@
-package app.sample.navigation
+package app.sample.ui.navigation
 
 sealed class NavigationRoutes(val route: String){
     object MainScreen: NavigationRoutes("main")

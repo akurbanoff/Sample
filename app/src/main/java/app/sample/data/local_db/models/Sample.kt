@@ -1,4 +1,4 @@
-package app.sample.db.models
+package app.sample.data.local_db.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

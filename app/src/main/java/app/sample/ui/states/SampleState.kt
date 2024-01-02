@@ -1,6 +1,6 @@
-package app.sample.states
+package app.sample.ui.states
 
-import app.sample.db.models.Sample
+import app.sample.data.local_db.models.Sample
 
 data class SampleState(
     val samples: List<Sample> = emptyList(),
