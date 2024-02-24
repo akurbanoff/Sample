@@ -8,6 +8,6 @@ interface SampleRepository{
         suspend fun doNetworkCall()
     }
     interface Local{
-        suspend fun getAll() : Flow<List<Sample>>
+        fun getAll() : Flow<List<Sample>>
     }
 }

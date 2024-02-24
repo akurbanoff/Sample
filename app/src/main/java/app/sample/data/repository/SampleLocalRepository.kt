@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 class SampleLocalRepository(
     private val dao: SampleDao
 ) : SampleRepository.Local {
-    override suspend fun getAll() : Flow<List<Sample>> {
+    override fun getAll() : Flow<List<Sample>> {
         return dao.getAll()
     }
 

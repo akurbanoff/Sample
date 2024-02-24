@@ -29,20 +29,11 @@ class SampleLocalViewModel @Inject constructor(
 
     private val _state = MutableStateFlow(SampleState())
     @OptIn(ExperimentalCoroutinesApi::class)
-    private val _samples: StateFlow<List<Sample>> = MutableStateFlow(emptyList<Sample>()).also { getAll() }.asStateFlow()
+    private val _samples = MutableStateFlow(localRepository.getAll()).flatMapLatest { localRepository.getAll() }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(), emptyList())
 
     val state = combine(_state, _samples){state, samples ->
         state.copy(
             samples = samples
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000L), SampleState())
-
-    private fun getAll(){
-        viewModelScope.launch(Dispatchers.IO) {
-            _samples.collect{
-                localRepository.getAll()
-            }
-        }
-    }
-
 }
